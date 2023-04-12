@@ -15,7 +15,7 @@ Modern dart games usually use darts made of plastic or aluminum, and the darts t
 $$m\ddot{y} = -mg - K_{y}\dot{y}V$$
 $$m\ddot{x} = -K_{x}\dot{x}V$$
 $$V = \sqrt{\dot{x}^2 + \dot{y}^2}$$
-where the dots are time derivatives and the gravitation constant is $g = 9.82 N/kg$.  
+where the dots are time derivatives and the gravitational constant is $g = 9.82 N/kg$.  
 
  **a)** If the darts have the mass 20 g and you throw it with the initial velocity of $v_{0} = 15 m/s$ from the initial height 184 cm with 4 degrees upwards from the horisontal plane, what will the distance from the floor be where the dart hits the board (or the wall)?  
  
