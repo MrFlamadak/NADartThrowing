@@ -8,7 +8,7 @@ Modern dart games usually use darts made of plastic or aluminum, and the darts t
 
   The velocity of the darts from different dart throwers have been measured with laser to be between 10 to 30 m/s.  
 
-  The darts are quite narrow with feathers in the back, so the air resistance in the throwing direction is much smaller than in the direction perpendicular to the throwing direction. This gives us that $K_{x} = 0.002$ and $K_{y} = 0.02$.  
+  The darts are quite narrow with feathers on the back edge, so the air resistance in the throwing direction is much smaller than in the direction perpendicular to the throwing direction. This gives us that $K_{x} = 0.002$ and $K_{y} = 0.02$.  
   
   The projectile motion of the darts can then be described as the following expressions:  
   
