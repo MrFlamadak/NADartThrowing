@@ -1,5 +1,5 @@
 # Project description (English)
-The following is an unofficial translation of the section "Projekt A. Pilkastning" in the file ```Project.pdf```. That file includes the official description provided for our chosen project in the course SF1546 Numerical Methods, Basic Course.  
+The following is an unofficial translation of the section "Projekt A. Pilkastning" in the file ```Projekt.pdf```. That file includes the official description provided for our chosen project in the course SF1546 Numerical Methods, Basic Course.  
   
 ## Project A. Dart throwing
 Modern dart games usually use darts made of plastic or aluminum, and the darts typically weigh between 18 to 30 grams.  
