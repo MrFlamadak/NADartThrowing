@@ -1,11 +1,12 @@
 % SF1546 Numerical Methods, Basic course, Project A
-% multivareuler2.m - "Returns distance from bullseye"
+% bullsEyeDistance.m - "Returns distance from bullseye"
+% modified version of "multiVarEuler.m"
 
 % x0 & y0: initial coordinates; v0: initial velocity; 
 % h: step-length; a: angle; m: mass
 
 
-function lasty = multivareuler2(h, a)
+function lasty = bullsEyeDistance(h, a)
 x0 = 0;
 y0 = 1.84;
 v0 = 15;
@@ -36,7 +37,7 @@ x = xy(1:n - 1, 1);
 y = xy(1:n - 1, 2);
 figure(1)
 plot(x, y)
-lasty = y(end);
+lasty = y(end) - 1.83;
 hold on
 plot(0, 1.84, 'o')
 plot(2.37, 1.83, 'o')
