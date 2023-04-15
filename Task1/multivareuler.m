@@ -22,7 +22,7 @@ while x0 <= xend
   % we get next point's coordinates
   y0 = y0 + yp*h;
   x0 = x0 + xp*h;
-  %preparation for next
+  % preparation for next
   yp = yp + ybis(xp, yp)*h;
   xp = xp + xbis(xp, yp)*h;
 end

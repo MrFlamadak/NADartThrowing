@@ -2,3 +2,6 @@
 *.md linguist-vendored=false
 *.md linguist-generated=false
 *.md linguist-documentation=false
+
+*.mlx linguist-detectable=true
+*.mlx linguist-language=matlab
