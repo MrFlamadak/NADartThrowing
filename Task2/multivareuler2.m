@@ -8,7 +8,7 @@
 function lasty = multivareuler2(h, a)
 x0 = 0;
 y0 = 1.84;
-v0= 15;
+v0 = 15;
 m = 0.02;
 xend = 2.37;
 yp = v0*sind(a);
