@@ -1,10 +1,11 @@
 % SF1546 Numerical Methods, Basic course, Project A
-% sekantA
-function root = sekantA(h, a, tol)
-xn = 5;
-xnn = a;
+% secantA.m - "Secant method for Project A"
+
+% xn: x(n); xnn: x(n+1)
+function root = secantA(h, a, tol)
+xn = 5; xnn = a;
 tn = 1;
-f = @(xh,xa) multivareuler2(xh, xa)-1.83;
+f = @(xh,xa) bullsEyeDistance(xh, xa);
 while abs(tn) > tol
   tn = f(h,xnn)*(xnn-xn)/(f(h,xnn)-f(h,xn));
   xn = xnn;
