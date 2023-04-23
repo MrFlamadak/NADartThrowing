@@ -1,6 +1,6 @@
 % SF1546 Numerical Methods, Basic course, Project A
 % animDartThrow: Animates the dart throw with respect to the throwing angle
-function animDartThrow()
+function animDartThrow(h)
 close(1)
 A = zeros(601, 2);
 index = 1;
