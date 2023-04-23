@@ -22,17 +22,17 @@ function lasty = bullsEyeDistance(h, a)
     xbis = @(xp, yp) - (Kx*xp*sqrt(yp^2 + xp^2))/m;
     
     while x0 <= xend
-      xy(n, 1) = x0;
-      xy(n, 2) = y0;
-      n = n + 1;
-      % we get next point's coordinates
-      y0 = y0 + yp*h;
-      x0 = x0 + xp*h;
-      % preparation for next
-      yp = yp + ybis(xp, yp)*h;
-      xp = xp + xbis(xp, yp)*h;
+        xy(n, 1) = x0;
+        xy(n, 2) = y0;
+        n = n + 1;
+        % we get next point's coordinates
+        y0 = y0 + yp*h;
+        x0 = x0 + xp*h;
+        % preparation for next
+        yp = yp + ybis(xp, yp)*h;
+        xp = xp + xbis(xp, yp)*h;
     end
-    
+
     x = xy(1:n - 1, 1);
     y = xy(1:n - 1, 2);
     figure(1)
