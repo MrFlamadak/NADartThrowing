@@ -5,7 +5,7 @@
 % x0 & y0: initial coordinates; v0: initial velocity; 
 % h: step-length; a: angle; m: mass
 
-function lasty = bullsEyeDistanceA(h, a)
+function distance = bullsEyeDistanceA(h, a)
     x0 = 0;
     y0 = 1.84;
     v0 = 15;
@@ -37,7 +37,7 @@ function lasty = bullsEyeDistanceA(h, a)
     y = xy(1:n - 1, 2);
     figure(1)
     plot(x, y)
-    lasty = y(end) - 1.83;
+    distance = y(end) - 1.83;
     hold on
     plot(0, 1.84, 'o')
     plot(2.37, 1.83, 'o')
