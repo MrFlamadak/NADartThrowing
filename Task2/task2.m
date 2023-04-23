@@ -2,7 +2,7 @@
 % Task2 (Randvärdesproblem)
 clear
 format long
-guess =80;
+guess = 80;
 %argument: h och a
 h = 0.5e-4;
 a = 0;
@@ -19,7 +19,6 @@ a = 0;
 % secant time
 rot1 = secantA(h, a, 1e-4)
 noll1 = bullsEyeDistance(h, rot1)
-
 
 rot2 = secantA(h, 80, 1e-4)
 noll2 = bullsEyeDistance(h, rot2)
