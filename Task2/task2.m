@@ -18,10 +18,10 @@ a = 0;
 %tn = 8.1001e-08 => y2 har 7 decimalers noggranhet
 % secant time
 rot1 = secantA(h, a, 1e-4)
-noll1 = bullsEyeDistance(h, rot1)
+noll1 = bullsEyeDistanceA(h, rot1)
 
 rot2 = secantA(h, 80, 1e-4)
-noll2 = bullsEyeDistance(h, rot2)
+noll2 = bullsEyeDistanceA(h, rot2)
 
 % animDartThrow(h) animates the dart's travel from 0 to 85 degrees
 % un-comment the function below to see

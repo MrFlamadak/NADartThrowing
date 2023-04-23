@@ -8,7 +8,7 @@ function animDartThrow(h)
     index = 1;
 
     for x = 0:0.1:85
-        A(index, 2) = bullsEyeDistance(h, x);
+        A(index, 2) = bullsEyeDistanceA(h, x);
         A(index, 1) = x;
         index = index + 1;
     end
@@ -18,6 +18,3 @@ end
 % this finds both solutions to task 2! visually.
 
 % start: 5, 4 root = 4.199249961710662
-
-%[diff, yend, x, y] = multivareuler2(4);
-%guess = fzero(@multivareuler2, guess, options);

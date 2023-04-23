@@ -3,7 +3,7 @@
 % x0 & y0: initial coordinates; v0: initial velocity; 
 % h: step-length; a: angle; m: mass
 
-function [x, y] = multivareuler(x0, y0, v0, h, a, m)
+function [x, y] = multiVarEuler(x0, y0, v0, h, a, m)
     xend = 2.37;
     yp = v0*sind(a);
     xp = v0*cosd(a);

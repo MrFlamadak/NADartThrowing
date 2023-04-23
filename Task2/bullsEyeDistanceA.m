@@ -1,11 +1,11 @@
 % SF1546 Numerical Methods, Basic course, Project A
-% bullsEyeDistance.m - "Returns distance from bullseye"
+% bullsEyeDistanceA.m - "Returns distance from bullseye with angle as parameter"
 % modified version of "multiVarEuler.m"
 
 % x0 & y0: initial coordinates; v0: initial velocity; 
 % h: step-length; a: angle; m: mass
 
-function lasty = bullsEyeDistance(h, a)
+function lasty = bullsEyeDistanceA(h, a)
     x0 = 0;
     y0 = 1.84;
     v0 = 15;

@@ -5,7 +5,7 @@
 function root = secantA(h, a, tol)
     xn = a+1; xnn = a;
     tn = 1;
-    f = @(xh,xa) bullsEyeDistance(xh, xa);
+    f = @(xh,xa) bullsEyeDistanceA(xh, xa);
 
     while abs(tn) > tol
         tn = f(h,xnn)*(xnn-xn)/(f(h,xnn)-f(h,xn));
