@@ -3,7 +3,7 @@
 
 % xn: x(n); xnn: x(n+1)
 function root = secantA(h, a, tol)
-xn = 5; xnn = a;
+xn = a+1; xnn = a;
 tn = 1;
 f = @(xh,xa) bullsEyeDistance(xh, xa);
 while abs(tn) > tol
