@@ -20,9 +20,10 @@ function distance = bullsEyeDistanceV(h, v0)
     while x <= xend
         x = x + h * xp;
         y = y + h * yp;
-        xpn = xp + h * xbis(xp, yp);
-        ypn = yp + h * ybis(xp, yp);
-        xp = xpn; yp = ypn;
+  
+        xp = xp + h * xbis(xp, yp);
+        yp = yp + h * ybis(xp, yp);
+ 
         xy(i, 1) = x; xy(i, 2) = y;
         i = i + 1;
     end
