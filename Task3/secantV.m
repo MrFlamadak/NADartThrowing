@@ -3,10 +3,10 @@
 % angle is 3 degrees
 function root = secantV(h, v, tol)
     vn = v+1; vnn = v;
-    f = @(h, x) bullsEyeDistanceV(h, x);
+    f = @(x) bullsEyeDistanceV(h, x);
     tn = 1;
     while abs(tn)>tol
-        tn = f(h, vnn)*(vnn-vn)/(f(h, vnn) - f(h, vn));
+        tn = f(vnn)*(vnn-vn)/(f(vnn) - f(vn));
         vn = vnn;
         vnn = abs(vnn - tn);
     end
