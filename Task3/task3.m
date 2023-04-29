@@ -1,8 +1,8 @@
 % SF1546 Numerical Methods, Basic Course, Project A
 % Task3 (Randvärdesproblem)
 
+format long
 h = 1e-5;
 v = 15;
-distance = bullsEyeDistanceV(h, v)
-% X becomes negative and does not reach wall
-answer = secantV(h, distance, 1e-1);
+root = secantV(h, v, 1e-7)
+distance = bullsEyeDistanceV(h, root)
