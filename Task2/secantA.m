@@ -2,7 +2,7 @@
 % secantA.m - "Secant method for Project A"
 
 % xn: x(n); xnn: x(n+1)
-function root = secantA(h, a, tol)
+function [root, tn] = secantA(h, a, tol)
     xn = a+1; xnn = a;
     tn = 1;
     f = @(xh,xa) bullsEyeDistanceA(xh, xa);
