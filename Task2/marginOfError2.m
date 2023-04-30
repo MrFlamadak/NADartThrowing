@@ -12,15 +12,15 @@ guess2 = 80;
 [rot1, tn1] = secantA(h, guess1, tol);
 secanterror1 = tn1
 rot1
-%secanterror1 = 1.03963e-05
-%eulererror1 = 3.81303e-05
+% secanterror1 = 1.03963e-05
+% eulererror1 = 3.81303e-05
 % tot = 4.85267e-05
 
 d1 = bullsEyeDistanceA(h, rot1 + tn1);
 d2 = bullsEyeDistanceA(h/2, rot1 + tn1);
 d3 = bullsEyeDistanceA(h/4, rot1 + tn1);
 richardson1 = (d1 - d2) / (d2 - d3)
-eulererror1 = (d1 ) - (d2)
+eulererror1 = (d1) - (d2)
 svar1 = d1
 tot = eulererror1 + secanterror1
 d1 = bullsEyeDistanceA(h, rot1 - tn1);
@@ -39,11 +39,11 @@ d3 = bullsEyeDistanceA(h/4, rot2 - tn2);
 richardson2 = (d1 - d2) / (d2 - d3)
 eulererror2 = d1 - d2
 svar2 = d1
-tot2 = eulererror2+secanterror2
+tot2 = eulererror2 + secanterror2
 
-% sekanterror2 = 3.07021e-05
+% secanterror2 = 3.07021e-05
 % eulererror2 = 8.25860e-05
 % tot2 = 1.13288e-04
 
 % This is the first time we have worked with accumulative error margins and
-% so we assume the separate method errors are combined additively.
+% so we assume the separate method errors can be combined additively.
