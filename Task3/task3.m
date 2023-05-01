@@ -4,5 +4,5 @@
 format long
 h = 1e-5;
 v = 15;
-root = secantV(h, v, 1e-7)
+[root, tn] = secantV(h, v, 1e-7)
 distance = bullsEyeDistanceV(h, root)
