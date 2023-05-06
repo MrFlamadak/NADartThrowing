@@ -1,6 +1,8 @@
 % SF1546 Numerical Methods, Basic Course, ProjectA
 % task4.m - Investigates the relationship between dart mass and dart-throwing
 % velocity in regards to dart-throwing
+% keywords: hv = high velocity, lv = low velocity, mv = middle velocity
+% mm = middle mass, hm = high mass
 
 % Hypothesis
 % Our hypothesis is that an increased mass will lead to an increase in
@@ -10,9 +12,11 @@
 % in velocity is an increase in force upwards.
 
 % point1 - high ma, high velocity
-h= 1e-5;
+h = 1e-5;
 
-m = 20e-3;
+mm = 20e-3;
+hm = 30e-3;
+
 hv = 30;
 mv = 15;
 lv = 10;
