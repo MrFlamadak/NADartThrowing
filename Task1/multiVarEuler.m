@@ -27,6 +27,9 @@ function [x, y] = multiVarEuler(x0, y0, v0, h, a, m)
         xp = xp + xbis(xp, yp)*h;
     end
 
-    x = xy(1:n - 1, 1);
-    y = xy(1:n - 1, 2);
+    xy(n, 1) = x0;
+    xy(n, 2) = y0;
+
+    x = xy(1:n, 1);
+    y = xy(1:n, 2);
 end
