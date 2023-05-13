@@ -9,10 +9,12 @@ tol = 1e-4;
 format long
 % Undisrupted
 aGuess = 0;
-undisrupted = secantA(h, aGuess, tol)
-bullsEyeDistanceA()
+
+undisrupted = secantAll(y0, v, h, aGuess, m, tol);
 
 % Mdisrupted
+
+
 % mDisrupted = secant(h, )
 % For next time: Make another bullseyedistance that takes m, v and y0 as
 % paramters 
