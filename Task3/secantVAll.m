@@ -7,7 +7,7 @@ function [root, tn] = secantVAll(y0, a, h, v, m, tol)
 
     % the parameters in f have an "x" prefixed to their original name so
     % that they will not have conflicts with secantVAll.m's parameter names
-    f = @(xy0, xa, h, xv, xm) bullsEyeDistanceVAll(xy0, xa, h, xv, xm);
+    f = @(xy0, xa, xh, xv, xm) bullsEyeDistanceVAll(xy0, xa, xh, xv, xm);
     tn = 1;
     
     while abs(tn) > tol
@@ -17,7 +17,7 @@ function [root, tn] = secantVAll(y0, a, h, v, m, tol)
     end
     
     root = vn;
-    tn = abs(tn)
+    tn = abs(tn);
 
 end
 
