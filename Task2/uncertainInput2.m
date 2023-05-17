@@ -11,16 +11,16 @@ format long
 % First root
 aGuess1 = 0;
 
-undisrupted1 = secantAll(y0, v, h, aGuess1, m, tol);
+[undisrupted1, t, d1] = secantAll(y0, v, h, aGuess1, m, tol);
 
 % Mdisrupted
-disruptedM1 = secantAll(y0, v, h, aGuess1, mDisrupted, tol);
+[disruptedM1, t, d2] = secantAll(y0, v, h, aGuess1, mDisrupted, tol);
 
 % Vdisrupted
-disruptedV1 = secantAll(y0, vDisrupted, h, aGuess1, m, tol);
+[disruptedV1, t, d3] = secantAll(y0, vDisrupted, h, aGuess1, m, tol);
 
 % Y0disrupted
-disruptedY01 = secantAll(y0Disrupted, v, h, aGuess1, m, tol);
+[disruptedY01, t, d4] = secantAll(y0Disrupted, v, h, aGuess1, m, tol);
 
 % Total disruption for aGuess = 0
 mError1 = abs(disruptedM1 - undisrupted1);
@@ -28,6 +28,10 @@ vError1 = abs(disruptedV1 - undisrupted1);
 y0Error1 = abs(disruptedY01 - undisrupted1);
 
 totError1 = mError1 + vError1 + y0Error1
+
+% lengthToBullsEyeM = d2
+% lengthToBullsEyeV = d3
+% lengthToBullsEyeY = d4
 
 % Second root
 aGuess2 = 80;

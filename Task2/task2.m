@@ -15,4 +15,4 @@ noll2 = bullsEyeDistanceA(h, rot2)
 
 % animDartThrow(h) animates the dart's travel from 0 to 85 degrees
 % un-comment the function below to see
-%animDartThrow(h)
+animDartThrow(h)

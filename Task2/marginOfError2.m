@@ -1,6 +1,6 @@
 % SF1546 Numerical Methods, Basic Course, ProjectA
 % marginOfError2.m - Calculates total margin of error for task2
-% The radius of an offical dartboard bullsete is 6.37mm= 6.35e-03
+% The radius of an offical dartboard bullseye is 6.37mm = 6.35e-03
 % Therefore having a tolerance and steplength under this would be valid
 % since it is within the eye.
 format long

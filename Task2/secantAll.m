@@ -2,7 +2,7 @@
 % secantAll.m - "Modified Secant method for Project A"
 % 
 % xn: x(n); xnn: x(n+1)
-function [root, tn] = secantAll(y0, v0, h, a, m, tol)
+function [root, tn, bd] = secantAll(y0, v0, h, a, m, tol)
     
 
     xn = a + 1; xnn = a;
@@ -18,4 +18,5 @@ function [root, tn] = secantAll(y0, v0, h, a, m, tol)
     end
 
     root = xn;
+    bd = tn;
 end

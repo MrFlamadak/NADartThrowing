@@ -6,6 +6,7 @@ h = 0.000001;
 plot(x, y)
 y(end)
 x(end)
+
 % linear interpolation was performed to see if there were any improvements
 % to be made, however the difference was negligible and so the
 % aforementioned results are satisfactory
@@ -17,7 +18,3 @@ x(end)
 % m = ypoints(1) - k*xpoints(1);
 % yval = k.*xspan + m;
 % plot(xspan, yval)
-
- 
-
-
