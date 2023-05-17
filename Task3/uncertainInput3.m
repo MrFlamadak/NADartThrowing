@@ -12,15 +12,24 @@ format long
 % Undisrupted
 vGuess1 = 15;
 
-undisrupted1 = secantVAll(y0, a, h, vGuess1, m, tol)
-
+undisrupted1 = secantVAll(y0, a, h, vGuess1, m, tol)  
 mDisrupted1 = secantVAll(y0, a, h, vGuess1, m + mError, tol)
 aDisrupted1 = secantVAll(y0, a + aError, h, vGuess1, m, tol)
 y0Disrupted1 = secantVAll(y0 + y0Error, a, h, vGuess1, m, tol)
 
-% Total margin of error
-Em = abs(mDisrupted1 - undisrupted1);
-Ea = abs(aDisrupted1 - undisrupted1);
-Ey0 = abs(y0Disrupted1 - undisrupted1);
+% Modified newton method(requires good starting guess)
+tol = 5e-7;
+uD1 = modNewton(y0, a, h, undisrupted1, m, tol)
+mD1 = modNewton(y0, a, h, mDisrupted1, m + mError, tol)
+aD1 = modNewton(y0, a + aError, h, aDisrupted1, m, tol)
+yD1 = modNewton(y0 + y0Error, a, h, y0Disrupted1, m, tol)
+bullsEyeDistanceVAll(y0, a, h, yD1, m)
+  
+
+
+% % Total margin of error
+Em = abs(mD1 - uD1);
+Ea = abs(aD1 - uD1);
+Ey0 = abs(yD1 - uD1);
 Etot = Em + Ea + Ey0
-% Etot = 2.227987939621419 
+% % Etot = 2.227987939621419 
