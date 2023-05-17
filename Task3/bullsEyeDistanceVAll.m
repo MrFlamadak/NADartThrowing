@@ -13,8 +13,8 @@ function distance = bullsEyeDistanceVAll(y0, a, h, v0, m)
     yp = v0 * sind(a0);
     xy = zeros(1000000, 2);
     xy(1, 1) = x0; xy(1, 2) = y0;
-    ybis = @(xp, yp) - g - (Ky*yp*sqrt(yp^2 + xp^2))/m;
-    xbis = @(xp, yp) - (Kx*xp*sqrt(yp^2 + xp^2))/m;
+    ybis = @(xp, yp) - g - (Ky * yp * sqrt(yp^2 + xp^2)) / m;
+    xbis = @(xp, yp) - (Kx * xp * sqrt(yp^2 + xp^2)) / m;
     i = 2;
     x = x0; y = y0;
 
