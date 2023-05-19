@@ -6,6 +6,7 @@ h = 0.000001;
 plot(x, y)
 y(end)
 x(end)
+plot(x(end-2:end), y(end-2:end))
 
 % linear interpolation was performed to see if there were any improvements
 % to be made, however the difference was negligible and so the
@@ -18,3 +19,23 @@ x(end)
 % m = ypoints(1) - k*xpoints(1);
 % yval = k.*xspan + m;
 % plot(xspan, yval)
+
+% kvadratisk interpolation
+A = [1, x(end-2), x(end-2).^2;
+     1, x(end-1), x(end-1).^2;
+     1, x(end), x(end).^2]
+c = [y(end-2); y(end-1); y(end)];
+b = A\c
+%graph = @(x) b(1) + b(2) * x + b(3) * x.^2;
+% x = linspace(0, 2.37);
+% plot(x, graph(x))
+% graph(2.37)
+
+c = interpol1(x(end-2:end), y(end-2:end))
+graph = @(x) c(1) + c(2) * x + c(3) * x.^2;
+x = linspace(0, 2.37);
+plot(x, graph(x))
+graph(2.37)
+noIntpol = y(end) - 1.83
+withIntpol = graph(2.37) - 1.83
+difference = abs(noIntpol - withIntpol)
