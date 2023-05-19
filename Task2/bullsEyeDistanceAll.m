@@ -6,7 +6,7 @@
 % x0 & y0: initial coordinates; v0: initial velocity; 
 % h: step-length; a: angle; m: mass
 
-function distance = bullsEyeDistanceAll(y0, v0, h, a, m)
+function [distance, x, y] = bullsEyeDistanceAll(y0, v0, h, a, m)
     x0 = 0;
     xend = 2.37;
     yp = v0*sind(a);
