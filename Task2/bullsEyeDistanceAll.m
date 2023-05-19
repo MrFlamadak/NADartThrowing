@@ -33,8 +33,8 @@ function [distance, x, y] = bullsEyeDistanceAll(y0, v0, h, a, m)
 
     x = xy(1:n - 1, 1);
     y = xy(1:n - 1, 2);
-    % figure(1)
-    % plot(x, y)
+    figure(1)
+    plot(x, y)
     distance = y(end) - 1.83;
     hold on
     plot(0, 1.84, 'o')
