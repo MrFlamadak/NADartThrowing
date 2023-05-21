@@ -10,9 +10,9 @@ function k = newtonInterpol(x, y)
     i = 1;
     for i = 1:size - 1
         % algorithm that inputs according to newton 
-        A = A .* (x - x(i))
+        A = A .* (x - x(i));
         % replaces ones in column of C with terms in A except first column
-        C(:, i+1) = A
+        C(:, i+1) = A;
     end
     k = C \ y;
 end
