@@ -41,3 +41,7 @@ function [distance, x, y] = bullsEyeDistanceAll(y0, v0, h, a, m)
     plot(2.37, 1.83, 'o')
     hold off
 end
+% Idea for how to combine the three methods
+% Insert an interpolation function that returns value of y when x = 2.37 in this
+% function and then let this.function return interpolated distance from
+% 1.83. Something for after redovisning.
