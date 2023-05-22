@@ -41,6 +41,9 @@ k = newtonInterpol(x1, y1)
 yfunc = @(x) k(1) + k(2) * (x-x1(1)) + k(3) * (x-x1(1)) * (x-x1(2));
 y237 = yfunc(2.37)
 errormargin = yfunc(2.37) - 1.83
+
+maxBullsyedistance1 = bullsEyeDistanceAll(y0, v, h, root1 + 6.82e-05, m)
+maxBullsyedistance2 = bullsEyeDistanceAll(y0, v, h, root2 + 2.92e-05, m)
 % Interpol margin of error
 x2 = xd(end - 3:end);
 y2 = yd(end - 3:end);
@@ -50,11 +53,13 @@ y237n2 = yfunc2(2.37);
 diff = y237-y237n2
 % ANSWERS: 
 % (1) InitialAngle = 4.198963 +- 6.82e-05
-% gives 1.8299970 +- which is 2.96-06 m from 1.83
+% maximumDistancefrombullseye1 = 2.30e-06
 
-% (2) InitialAngle = 80.037703 +- 2.92-05
-% gives 1.829989  which is 1-05 m from 1.83
+% (2) InitialAngle = 80.037703 +- 2.92e-05
+% maximumDistanceFromBullseye2 = 1.88e-05
 
+% Both are within 6.37e-03 m, which means we hit the bullseye even in
+% worstcase.
 % animDartThrow(h) animates the dart's travel from 0 to 85 degrees
 % un-comment the function below to see
 % animDartThrow(h)
