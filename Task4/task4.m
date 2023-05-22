@@ -20,13 +20,11 @@ hm = 30e-3;
 hv = 30;
 mv = 15;
 lv = 10;
-old = bullsEyeDistanceMV(h, mm, mv) % prior assigments
+normal = bullsEyeDistanceMV(h, mm, mv) % prior assigments
+highMassNormalV = bullsEyeDistanceMV(h, hm, mv)
+highMassLowV = bullsEyeDistanceMV(h, hm, lv) 
+highMassHighV = bullsEyeDistanceMV(h, hm, hv)
 
-p1 = bullsEyeDistanceMV(h, hm, lv) 
-p2 = bullsEyeDistanceMV(h, hm, mv)
-p3 = bullsEyeDistanceMV(h, hm, hv)
-
-plot(1:1:3, [p1, p2, p3])
 % En konstant massa hm och tre olika hastigheter lv, mv och hv väljs. Det
 % är tydligt från observation att när hastigheten är som lägst att pilen
 % träffar lägst under bullseye. Dessutom kommer pilen längre och längre upp
