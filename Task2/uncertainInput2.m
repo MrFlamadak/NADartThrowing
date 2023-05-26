@@ -9,7 +9,7 @@ tol = 1e-4;
 format long
 % Undisrupted
 % First root
-aGuess1 = 0;
+aGuess1 = 4;
 
 [undisrupted1, t, d1] = secantAll(y0, v, h, aGuess1, m, tol);
 
@@ -51,3 +51,12 @@ totError2 = mError2 + vError2 + y0Error2
 
 % Total margin of error for root 1: 1.196605897255665 degrees
 % Total margin of error for root 2: 0.224604771340850 degrees
+
+% Verification to see if the error is within bull's-eye radius
+distance1 = bullsEyeDistanceAll(y0, v, h, undisrupted1 + totError1, m)
+distance2 = bullsEyeDistanceAll(y0, v, h, undisrupted2 + totError2, m)
+ndistance1 = bullsEyeDistanceAll(y0, v, h, undisrupted1 - totError1, m)
+ndistance2 = bullsEyeDistanceAll(y0, v, h, undisrupted2 - totError2, m)
+
+% Result: None of the roots + its errors will have a 100% of hitting
+% bull's-eye
