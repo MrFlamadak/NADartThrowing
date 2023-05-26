@@ -17,8 +17,9 @@ x1 = xd(end - 2:end);
 y1 = yd(end - 2:end);
 k = newtonInterpol(x1, y1);
 yfunc = @(x) k(1) + k(2) * (x-x1(1)) + k(3) * (x-x1(1)) * (x-x1(2));
-y237_1 = yfunc(2.37)
-% Interpol margin of error
+y237_1 = yfunc(2.37);
+
+% (Root1)Interpol margin of error
 x2 = xd(end - 3:end);
 y2 = yd(end - 3:end);
 k = newtonInterpol(x2, y2);
@@ -26,10 +27,7 @@ yfunc2 = @(x) k(1) + k(2) * (x-x2(1)) + k(3) * (x-x2(1)) * (x-x2(2)) + k(4) * (x
 y237n2 = yfunc2(2.37);
 diff = y237_1-y237n2;
 % interpolerror = -6.88e-15 (negligible)
-%   1.830019063129496
-%   -0.050643301389363
-%   -0.012432980169140
-%    0.001398103787500
+
 aGuess2 = 80;
 
 % second root
@@ -42,9 +40,7 @@ yfunc = @(x) k(1) + k(2) * (x-x1(1)) + k(3) * (x-x1(1)) * (x-x1(2));
 y237_2 = yfunc(2.37)
 
 
-maxBullsyedistance1 = bullsEyeDistanceAll(y0, v, h, root1 + 6.82e-05, m);
-maxBullsyedistance2 = bullsEyeDistanceAll(y0, v, h, root2 + 2.92e-05, m);
-% Interpol margin of error
+% (Root2)Interpol margin of error
 x2 = xd(end - 3:end);
 y2 = yd(end - 3:end);
 k = newtonInterpol(x2, y2);
@@ -53,6 +49,10 @@ y237n2 = yfunc2(2.37);
 diff = y237_2-y237n2;
 root1
 root2
+
+% Shows worst-case scenario for both roots
+maxBullsyedistance1 = bullsEyeDistanceAll(y0, v, h, root1 + 6.82e-05, m);
+maxBullsyedistance2 = bullsEyeDistanceAll(y0, v, h, root2 + 2.92e-05, m);
 % ANSWERS: 
 % (1) InitialAngle = 4.198963 +- 6.82e-05
 % maximumDistancefrombullseye1 = 2.30e-06
