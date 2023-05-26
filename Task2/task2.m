@@ -24,7 +24,7 @@ y2 = yd(end - 3:end);
 k = newtonInterpol(x2, y2);
 yfunc2 = @(x) k(1) + k(2) * (x-x2(1)) + k(3) * (x-x2(1)) * (x-x2(2)) + k(4) * (x-x2(1)) * (x-x2(2)) * (x-x2(3));
 y237n2 = yfunc2(2.37);
-diff = y237-y237n2;
+diff = y237_1-y237n2;
 % interpolerror = -6.88e-15 (negligible)
 %   1.830019063129496
 %   -0.050643301389363
@@ -50,7 +50,7 @@ y2 = yd(end - 3:end);
 k = newtonInterpol(x2, y2);
 yfunc2 = @(x) k(1) + k(2) * (x-x2(1)) + k(3) * (x-x2(1)) * (x-x2(2)) + k(4) * (x-x2(1)) * (x-x2(2)) * (x-x2(3));
 y237n2 = yfunc2(2.37);
-diff = y237-y237n2;
+diff = y237_2-y237n2;
 root1
 root2
 % ANSWERS: 
@@ -64,4 +64,4 @@ root2
 % worstcase.
 % animDartThrow(h) animates the dart's travel from 0 to 85 degrees
 % un-comment the function below to see
-% animDartThrow(h)
+animDartThrow(h)
