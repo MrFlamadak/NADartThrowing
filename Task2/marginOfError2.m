@@ -14,13 +14,13 @@ v = 15;
 y0 = 1.84;
 h = 1e-5;
 tol = 1e-4;
-guess1 = 0;
-guess2 = 80;
+aGuess1 = 0;
+aGuess2 = 80;
 
 % root 1
 
 % SecantError (root 1)
-[rot1, tn1] = secantAll(y0, v, h, guess1, m, tol);
+[rot1, tn1] = secantAll(y0, v, h, aGuess1, m, tol);
 secanterror1 = abs(tn1)
 
 % InterpolError (root 1)
@@ -53,7 +53,7 @@ tot1 = eulererror1 + secanterror1
 % root 2
 
 % SecantError (root2)
-[rot2, tn2] = secantAll(y0, v, h, guess2, m, tol);
+[rot2, tn2] = secantAll(y0, v, h, aGuess2, m, tol);
 secanterror2 = abs(tn2)
 
 % InterpolError (root2)
