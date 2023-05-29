@@ -7,6 +7,7 @@ y0 = 1.84;  y0Disrupted = y0 + y0 * 0.01;
 h = 1e-5;
 tol = 1e-4;
 format long
+
 % Undisrupted
 % First root
 aGuess1 = 4;
