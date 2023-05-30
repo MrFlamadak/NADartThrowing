@@ -27,19 +27,4 @@ Etot = Em + Ea + Ey0
 distance1 = bullsEyeDistanceVAll(y0, a, h, undisrupted1 + Etot, m)
 distance2 = bullsEyeDistanceVAll(y0, a, h, undisrupted1 - Etot, m)
 
-% 
-
-% Modified newton method(requires good starting guess)
-% uD1 = modNewton(y0, a, h, undisrupted1, m, tol)
-% mD1 = modNewton(y0, a, h, mDisrupted1, m + mError, tol)
-% aD1 = modNewton(y0, a + aError, h, aDisrupted1, m, tol)
-% yD1 = modNewton(y0 + y0Error, a, h, y0Disrupted1, m, tol)
-% bullsEyeDistanceVAll(y0 + y0Error, a, h, yD1, m)
-
-% Total margin of error with modified Newton
-% Em = abs(mD1 - uD1);
-% Ea = abs(aD1 - uD1);
-% Ey0 = abs(yD1 - uD1);
-% Etot = Em + Ea + Ey0
 % Etot with only Secant method = 2.227987939621419 
-% Etot with Secant and mod Newton = 2.225562099257830
