@@ -12,11 +12,11 @@ format long
 % First root
 guess1 = 4;
 
-[undisrupted1, t, d1] = secantAll(y0, v, h, guess1, m, tol);
+undisrupted1 = secantAll(y0, v, h, guess1, m, tol);
 
-[disruptedM1, t, d2] = secantAll(y0, v, h, guess1, mDisrupted, tol);
-[disruptedV1, t, d3] = secantAll(y0, vDisrupted, h, guess1, m, tol);
-[disruptedY01, t, d4] = secantAll(y0Disrupted, v, h, guess1, m, tol);
+disruptedM1 = secantAll(y0, v, h, guess1, mDisrupted, tol);
+disruptedV1 = secantAll(y0, vDisrupted, h, guess1, m, tol);
+disruptedY01 = secantAll(y0Disrupted, v, h, guess1, m, tol);
 
 % Total disruption for guess1 = 4
 mError1 = abs(disruptedM1 - undisrupted1);
