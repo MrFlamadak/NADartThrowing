@@ -24,7 +24,23 @@ Ey0 = abs(y0Disrupted1 - undisrupted1);
 Etot = Em + Ea + Ey0
 
 % Verification to see if the error is within bull's-eye radius
-distance1 = bullsEyeDistanceVAll(y0, a, h, undisrupted1 + Etot, m)
-distance2 = bullsEyeDistanceVAll(y0, a, h, undisrupted1 - Etot, m)
+
+% Positive error
+[distance1, xp, yp] = bullsEyeDistanceVAll(y0, a, h, undisrupted1 + Etot, m);
+
+xp = xp(end-3:end);
+yp = yp(end-3:end);
+k = newtonInterpol(xp(1:end-1), yp(1:end-1));
+yFuncP = @(x) k(1) + k(2) * (x-xp(1)) + k(3) * (x-xp(1)) * (x-xp(2));
+pDistance = yFuncP(2.37) -1.83
+
+% Negative error
+[distance2, xn, yn] = bullsEyeDistanceVAll(y0, a, h, undisrupted1 - Etot, m);
+
+xn = xn(end-3:end);
+yn = yn(end-3:end);
+k = newtonInterpol(xn(1:end-1), yn(1:end-1));
+yFuncN = @(x) k(1) + k(2) * (x-xn(1)) + k(3) * (x-xn(1)) * (x-xn(2));
+nDistance = yFuncN(2.37) - 1.83
 
 % Etot with only Secant method = 2.227987939621419 

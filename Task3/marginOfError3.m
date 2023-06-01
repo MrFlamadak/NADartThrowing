@@ -40,7 +40,24 @@ totalE = secantError + eulerError
 
 
 % Shows worst-case scenario
-pMaxDistanceFromBullseye = bullsEyeDistanceVAll(y0, a, h, root + 5.93e-05, m)
-nMaxDistanceFromBullseye = bullsEyeDistanceVAll(y0, a, h, root - 5.93e-05, m)
-% pmaxDistancefrombullseye = 5.56872e-07
-% nmaxDistancefrombullseye = 2.69653e-07
+% Positive error
+[distance1, xp, yp] = bullsEyeDistanceVAll(y0, a, h, root + totalE, m);
+
+xp = xp(end-3:end);
+yp = yp(end-3:end);
+k = newtonInterpol(xp(1:end-1), yp(1:end-1));
+yFuncP = @(x) k(1) + k(2) * (x-xp(1)) + k(3) * (x-xp(1)) * (x-xp(2));
+pDistance = yFuncP(2.37) -1.83
+
+% Negative error
+[distance2, xn, yn] = bullsEyeDistanceVAll(y0, a, h, root - totalE, m);
+
+xn = xn(end-3:end);
+yn = yn(end-3:end);
+k = newtonInterpol(xn(1:end-1), yn(1:end-1));
+yFuncN = @(x) k(1) + k(2) * (x-xn(1)) + k(3) * (x-xn(1)) * (x-xn(2));
+nDistance = yFuncN(2.37) - 1.83
+
+
+% pmaxDistancefrombullseye = 5.51278e-06
+% nmaxDistancefrombullseye = 4.77311e-06

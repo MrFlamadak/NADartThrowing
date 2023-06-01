@@ -86,6 +86,7 @@ tot2 = eulererror2 + secanterror2
 % Shows worst-case scenario for both roots
 maxBullsyedistance1 = bullsEyeDistanceAll(y0, v, h, rot1 + 6.82e-05, m)
 maxBullsyedistance2 = bullsEyeDistanceAll(y0, v, h, rot2 + 2.92e-05, m)
+
 % Both roots with their respective errors will still be able to hit within
 % the inner bull's-eye radius
 

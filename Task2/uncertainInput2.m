@@ -1,6 +1,8 @@
 % SF1546 Numerical Methods, Basic Course, ProjectA
 % unceratinInput2.m - Calculates total error with 1% disrupted parameter inputs
+
 clear vars
+addpath('..\Task3\')
 m = 20e-3;  mDisrupted = m + m * 0.01;
 v = 15;     vDisrupted = v + v * 0.01;
 y0 = 1.84;  y0Disrupted = y0 + y0 * 0.01;
@@ -45,15 +47,50 @@ totError2 = mError2 + vError2 + y0Error2
 % Total margin of error for root 2: 0.22460 degrees
 
 % Verification to see if the error is within bull's-eye radius
-pdistance1 = bullsEyeDistanceAll(y0, v, h, undisrupted1 + totError1, m);
-pdistance2 = bullsEyeDistanceAll(y0, v, h, undisrupted2 + totError2, m);
-ndistance1 = bullsEyeDistanceAll(y0, v, h, undisrupted1 - totError1, m);
-ndistance2 = bullsEyeDistanceAll(y0, v, h, undisrupted2 - totError2, m);
 
-% pdistance1 = 0.020259317804260
-% pdistance2 = -0.080312496827117
-% ndistance1 = -0.020291162173333
-% ndistance2 = 0.075172080510876
+% Root 1
+% Positive error
+[distance1, xp, yp] = bullsEyeDistanceAll(y0, v, h, undisrupted1 + totError1, m);
+
+xp = xp(end-3:end);
+yp = yp(end-3:end);
+k = newtonInterpol(xp(1:end-1), yp(1:end-1));
+yFuncP = @(x) k(1) + k(2) * (x-xp(1)) + k(3) * (x-xp(1)) * (x-xp(2));
+pDistance1 = yFuncP(2.37) -1.83
+
+% Negative error
+[distance1, xn, yn] = bullsEyeDistanceAll(y0, v, h, undisrupted1 - totError1, m);
+
+xn = xn(end-3:end);
+yn = yn(end-3:end);
+k = newtonInterpol(xn(1:end-1), yn(1:end-1));
+yFuncN = @(x) k(1) + k(2) * (x-xn(1)) + k(3) * (x-xn(1)) * (x-xn(2));
+nDistance1 = yFuncN(2.37) - 1.83
+
+% Root 2
+% Positive error
+[distance1, xp, yp] = bullsEyeDistanceAll(y0, v, h, undisrupted2 + totError2, m);
+
+xp = xp(end-3:end);
+yp = yp(end-3:end);
+k = newtonInterpol(xp(1:end-1), yp(1:end-1));
+yFuncP = @(x) k(1) + k(2) * (x-xp(1)) + k(3) * (x-xp(1)) * (x-xp(2));
+pDistance2 = yFuncP(2.37) -1.83
+
+% Negative error
+[distance1, xn, yn] = bullsEyeDistanceAll(y0, v, h, undisrupted2 - totError2, m);
+
+xn = xn(end-3:end);
+yn = yn(end-3:end);
+k = newtonInterpol(xn(1:end-1), yn(1:end-1));
+yFuncN = @(x) k(1) + k(2) * (x-xn(1)) + k(3) * (x-xn(1)) * (x-xn(2));
+nDistance2 = yFuncN(2.37) - 1.83
+
+% pdistance1 = 0.02025
+% ndistance1 = -0.02029
+
+% pdistance2 = -0.08033
+% ndistance2 = 0.07514
 
 % Result: None of the roots + its errors will have a 100% of hitting
 % bull's-eye
