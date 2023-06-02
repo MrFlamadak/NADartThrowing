@@ -16,7 +16,7 @@ answer = newt1
 
 % step length = 1e-05
 % Answer with Newton's Polynomial
-% 1.826624106511459
+% 1.826619499364257
 % Truncation error for Newton's Polynomial
 % 6.024614285671248e-06
 % Truncation error for Euler's Method (from marginOfError1.m)
