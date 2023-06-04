@@ -1,15 +1,13 @@
 % SF1546 Numerical Methods, Basic course, Project A
-% bullsEyeDistanceA.m - "Returns distance from bullseye with angle as parameter"
+% bullsEyeDistanceA.m - "Returns distance from bullseye with angle, velocity, mass and
+% intitial y as parameters"
 % modified version of "multiVarEuler.m"
 
 % x0 & y0: initial coordinates; v0: initial velocity; 
 % h: step-length; a: angle; m: mass
 
-function distance = bullsEyeDistanceA(h, a)
+function [distance, x, y] = bullsEyeDistanceA(y0, v0, h, a, m)
     x0 = 0;
-    y0 = 1.84;
-    v0 = 15;
-    m = 0.02;
     xend = 2.37;
     yp = v0*sind(a);
     xp = v0*cosd(a);
@@ -43,3 +41,7 @@ function distance = bullsEyeDistanceA(h, a)
     plot(2.37, 1.83, 'o')
     hold off
 end
+% Idea for how to combine the three methods
+% Insert an interpolation function that returns value of y when x = 2.37 in this
+% function and then let this function return interpolated distance from
+% 1.83.

@@ -1,8 +1,7 @@
 % SF1546 Numerical Methods, Basic Course, ProjectA
 % unceratinInput2.m - Calculates total error with 1% disrupted parameter inputs
 
-clear vars
-addpath('..\Task3\')
+clear variables
 m = 20e-3;  mDisrupted = m + m * 0.01;
 v = 15;     vDisrupted = v + v * 0.01;
 y0 = 1.84;  y0Disrupted = y0 + y0 * 0.01;
@@ -14,11 +13,11 @@ format long
 % First root
 guess1 = 4;
 
-undisrupted1 = secantAll(y0, v, h, guess1, m, tol);
+undisrupted1 = secantA(y0, v, h, guess1, m, tol);
 
-disruptedM1 = secantAll(y0, v, h, guess1, mDisrupted, tol);
-disruptedV1 = secantAll(y0, vDisrupted, h, guess1, m, tol);
-disruptedY01 = secantAll(y0Disrupted, v, h, guess1, m, tol);
+disruptedM1 = secantA(y0, v, h, guess1, mDisrupted, tol);
+disruptedV1 = secantA(y0, vDisrupted, h, guess1, m, tol);
+disruptedY01 = secantA(y0Disrupted, v, h, guess1, m, tol);
 
 % Total disruption for guess1 = 4
 mError1 = abs(disruptedM1 - undisrupted1);
@@ -30,11 +29,11 @@ totError1 = mError1 + vError1 + y0Error1
 % Second root
 guess2 = 80;
 
-undisrupted2 = secantAll(y0, v, h, guess2, m, tol);
+undisrupted2 = secantA(y0, v, h, guess2, m, tol);
 
-disruptedM2 = secantAll(y0, v, h, guess2, mDisrupted, tol);
-disruptedV2 = secantAll(y0, vDisrupted, h, guess2, m, tol);
-disruptedY02 = secantAll(y0Disrupted, v, h, guess2, m, tol);
+disruptedM2 = secantA(y0, v, h, guess2, mDisrupted, tol);
+disruptedV2 = secantA(y0, vDisrupted, h, guess2, m, tol);
+disruptedY02 = secantA(y0Disrupted, v, h, guess2, m, tol);
 
 % Total disruption for guess2 = 80
 mError2 = abs(disruptedM2 - undisrupted2);
@@ -50,7 +49,7 @@ totError2 = mError2 + vError2 + y0Error2
 
 % Root 1
 % Positive error
-[distance1, xp, yp] = bullsEyeDistanceAll(y0, v, h, undisrupted1 + totError1, m);
+[distance1, xp, yp] = bullsEyeDistanceA(y0, v, h, undisrupted1 + totError1, m);
 
 xp = xp(end-3:end);
 yp = yp(end-3:end);
@@ -59,7 +58,7 @@ yFuncP = @(x) k(1) + k(2) * (x-xp(1)) + k(3) * (x-xp(1)) * (x-xp(2));
 pDistance1 = yFuncP(2.37) -1.83
 
 % Negative error
-[distance1, xn, yn] = bullsEyeDistanceAll(y0, v, h, undisrupted1 - totError1, m);
+[distance1, xn, yn] = bullsEyeDistanceA(y0, v, h, undisrupted1 - totError1, m);
 
 xn = xn(end-3:end);
 yn = yn(end-3:end);
@@ -69,7 +68,7 @@ nDistance1 = yFuncN(2.37) - 1.83
 
 % Root 2
 % Positive error
-[distance1, xp, yp] = bullsEyeDistanceAll(y0, v, h, undisrupted2 + totError2, m);
+[distance1, xp, yp] = bullsEyeDistanceA(y0, v, h, undisrupted2 + totError2, m);
 
 xp = xp(end-3:end);
 yp = yp(end-3:end);
@@ -78,7 +77,7 @@ yFuncP = @(x) k(1) + k(2) * (x-xp(1)) + k(3) * (x-xp(1)) * (x-xp(2));
 pDistance2 = yFuncP(2.37) -1.83
 
 % Negative error
-[distance1, xn, yn] = bullsEyeDistanceAll(y0, v, h, undisrupted2 - totError2, m);
+[distance1, xn, yn] = bullsEyeDistanceA(y0, v, h, undisrupted2 - totError2, m);
 
 xn = xn(end-3:end);
 yn = yn(end-3:end);

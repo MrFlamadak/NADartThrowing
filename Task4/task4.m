@@ -20,10 +20,10 @@ hm = 30e-3;
 hv = 30;
 mv = 15;
 lv = 10;
-normal = bullsEyeDistanceMV(h, mm, mv) % prior assigments
-highMassNormalV = bullsEyeDistanceMV(h, hm, mv)
-highMassLowV = bullsEyeDistanceMV(h, hm, lv) 
-highMassHighV = bullsEyeDistanceMV(h, hm, hv)
+normal = bullsEyeDistanceMV(h, mm, mv) + 1.83 % prior assigments
+highMassNormalV = bullsEyeDistanceMV(h, hm, mv) + 1.83
+highMassLowV = bullsEyeDistanceMV(h, hm, lv) + 1.83
+highMassHighV = bullsEyeDistanceMV(h, hm, hv) + 1.83
 
 % En konstant massa hm och tre olika hastigheter lv, mv och hv väljs. Det
 % är tydligt från observation att när hastigheten är som lägst att pilen
