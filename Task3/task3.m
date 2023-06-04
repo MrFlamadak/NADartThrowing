@@ -1,8 +1,8 @@
 % SF1546 Numerical Methods, Basic Course, Project A
 % Task3 (Randvärdesproblem)
-
+clear variables
 format long
-clear vars;
+
 a = 3;
 m = 20e-3;  
 v = 16;     
@@ -10,7 +10,7 @@ y0 = 1.84;
 h = 1e-5;
 tol = 1e-4;
 
-[root, tn] = secantVAll(y0, a, h, v, m, tol);
+[root, tn] = secantV(y0, a, h, v, m, tol);
 
 root
 % ANSWERS:

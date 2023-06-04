@@ -1,5 +1,6 @@
 % SF1546 Numerical Methods, Basic Course, Project A
 
+clear variables
 format long
 h = 1e-05;
 [x, y] = multiVarEuler(0, 1.84, 15, h, 4, 0.02);
@@ -11,6 +12,7 @@ constants = newtonInterpol(x(end-2:end), y(end-2:end));
 graph = @(x) constants(1) + constants(2) * (x - xArr(1)) + constants(3) * (x - xArr(1)) .* (x - xArr(2));
 plot(x, graph(x))
 newt1 = graph(2.37);
+ylim([0 1.90])
 
 answer = newt1
 

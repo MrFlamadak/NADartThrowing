@@ -1,5 +1,7 @@
 % SF1546 Numerical Methods, Basic Course, ProjectA
 % marginOfError1.m - Calculates margin of error for solution in task1
+
+clear variables
 format long
 h = 1e-5;
 [x, y] = multiVarEuler(0, 1.84, 15, h, 4, 0.02);

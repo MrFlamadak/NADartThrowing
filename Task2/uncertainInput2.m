@@ -1,14 +1,14 @@
 % SF1546 Numerical Methods, Basic Course, ProjectA
 % unceratinInput2.m - Calculates total error with 1% disrupted parameter inputs
-
+format long
 clear variables
+
 m = 20e-3;  mDisrupted = m + m * 0.01;
 v = 15;     vDisrupted = v + v * 0.01;
 y0 = 1.84;  y0Disrupted = y0 + y0 * 0.01;
 
 h = 1e-5;
 tol = 1e-4;
-format long
 
 % First root
 guess1 = 4;

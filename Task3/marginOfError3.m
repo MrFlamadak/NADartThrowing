@@ -1,7 +1,8 @@
 % SF1546 Numerical Methods, Basic Course, ProjectA
 % merginOfError3.m - Calculates the margins of error in task 3
-clear vars;
+clear variables
 format long
+
 a = 3;
 m = 20e-3;  
 vGuess = 16;     
@@ -10,10 +11,10 @@ h = 1e-5;
 tol = 1e-4;
 
 % SecantError
-[root, secantError] = secantVAll(y0, a, h, vGuess, m, tol)
+[root, secantError] = secantV(y0, a, h, vGuess, m, tol)
 
 % InterpolError
-[distance, xd, yd] = bullsEyeDistanceVAll(y0, a, h, root, m);
+[distance, xd, yd] = bullsEyeDistanceV(y0, a, h, root, m);
 x1 = xd(end-3:end);
 y1 = yd(end-3:end);
 k = newtonInterpol(x1(1:end-1), y1(1:end-1));
@@ -26,9 +27,9 @@ y237_2 = yFunc2(2.37);
 interpolError = abs(y237_1-y237_2)
 
 % EulerError/Validity control
-d1 = bullsEyeDistanceVAll(y0, a, h, root, m);
-d2 = bullsEyeDistanceVAll(y0, a, h/2, root, m);
-d3 = bullsEyeDistanceVAll(y0, a, h/4, root, m);
+d1 = bullsEyeDistanceV(y0, a, h, root, m);
+d2 = bullsEyeDistanceV(y0, a, h/2, root, m);
+d3 = bullsEyeDistanceV(y0, a, h/4, root, m);
 richard1 = abs(d1 - d2) / abs(d2 - d3)
 eulerError = abs(d3 - d2)
 
@@ -41,7 +42,7 @@ totalE = secantError + eulerError
 
 % Shows worst-case scenario
 % Positive error
-[distance1, xp, yp] = bullsEyeDistanceVAll(y0, a, h, root + totalE, m);
+[distance1, xp, yp] = bullsEyeDistanceV(y0, a, h, root + totalE, m);
 
 xp = xp(end-3:end);
 yp = yp(end-3:end);
@@ -50,7 +51,7 @@ yFuncP = @(x) k(1) + k(2) * (x-xp(1)) + k(3) * (x-xp(1)) * (x-xp(2));
 pDistance = yFuncP(2.37) -1.83
 
 % Negative error
-[distance2, xn, yn] = bullsEyeDistanceVAll(y0, a, h, root - totalE, m);
+[distance2, xn, yn] = bullsEyeDistanceV(y0, a, h, root - totalE, m);
 
 xn = xn(end-3:end);
 yn = yn(end-3:end);

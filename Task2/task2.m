@@ -2,6 +2,7 @@
 % Task2 (Randvärdesproblem)
 clear variables
 format long
+
 % Standardized variables (SI-units)
 m = 20e-3;  
 v = 15;     

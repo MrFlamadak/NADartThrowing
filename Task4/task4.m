@@ -3,15 +3,9 @@
 % velocity in regards to dart-throwing
 % keywords: hv = high velocity, lv = low velocity, mv = middle velocity
 % mm = middle mass, hm = high mass
+clear variables
+format long
 
-% Hypothesis
-% Our hypothesis is that an increased mass will lead to an increase in
-% gravitiational pull. Therefore, the force exerted on the dart in the direction
-% of the dartboard must increase in order to compenstate for this. 
-% The only variable that affects the force is velocity and so an increase 
-% in velocity is an increase in force upwards.
-
-% point1 - high ma, high velocity
 h = 1e-5;
 
 mm = 20e-3;
