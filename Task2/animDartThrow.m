@@ -6,9 +6,11 @@ function animDartThrow(h)
     close(1)
     A = zeros(601, 2);
     index = 1;
+    y0 = 1.84; v0 = 15; m = 20e-3;
+    figure('Name', 'Dart throw from angles 0-85')
 
     for x = 0:0.1:85
-        A(index, 2) = bullsEyeDistanceA(h, x);
+        A(index, 2) = bullsEyeDistanceA(y0, v0, h, x, m);
         A(index, 1) = x;
         index = index + 1;
     end
