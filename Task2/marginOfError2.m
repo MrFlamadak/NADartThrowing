@@ -4,9 +4,8 @@
 % Therefore having a tolerance and steplength under this would be valid
 % since it is within the eye.
 
+clear variables
 format long
-clear vars
-addpath('..\Task3\')
 
 % Standardized variables
 m = 20e-3;  
@@ -20,11 +19,11 @@ aGuess2 = 80;
 % root 1
 
 % SecantError (root 1)
-[rot1, tn1] = secantAll(y0, v, h, aGuess1, m, tol);
+[rot1, tn1] = secantA(y0, v, h, aGuess1, m, tol);
 secanterror1 = abs(tn1)
 
 % InterpolError (root 1)
-[d, xd, yd] = bullsEyeDistanceAll(y0, v, h, rot1, m);
+[d, xd, yd] = bullsEyeDistanceA(y0, v, h, rot1, m);
 x1 = xd(end - 3:end);
 y1 = yd(end - 3:end);
 k = newtonInterpol(x1(1:end-1), y1(1:end-1));
@@ -37,9 +36,9 @@ y237n2 = yfunc2(2.37);
 intpolerror1 = y237_1-y237n2
 
 % EulerError/validity control (root1)
-d1 = bullsEyeDistanceAll(y0, v, h, rot1 + tn1, m);
-d2 = bullsEyeDistanceAll(y0, v, h/2, rot1 + tn1, m);
-d3 = bullsEyeDistanceAll(y0, v, h/4, rot1 + tn1, m);
+d1 = bullsEyeDistanceA(y0, v, h, rot1 + tn1, m);
+d2 = bullsEyeDistanceA(y0, v, h/2, rot1 + tn1, m);
+d3 = bullsEyeDistanceA(y0, v, h/4, rot1 + tn1, m);
 richardson1 = (d1 - d2) / (d2 - d3)
 eulererror1 = abs(d3 - d2)
 tot1 = eulererror1 + secanterror1
@@ -53,11 +52,11 @@ tot1 = eulererror1 + secanterror1
 % root 2
 
 % SecantError (root2)
-[rot2, tn2] = secantAll(y0, v, h, aGuess2, m, tol);
+[rot2, tn2] = secantA(y0, v, h, aGuess2, m, tol);
 secanterror2 = abs(tn2)
 
 % InterpolError (root2)
-[d, xd, yd] = bullsEyeDistanceAll(y0, v, h, rot2, m);
+[d, xd, yd] = bullsEyeDistanceA(y0, v, h, rot2, m);
 x2 = xd(end - 3:end);
 y2 = yd(end - 3:end);
 k = newtonInterpol(x2(1:end-1), y2(1:end-1));
@@ -70,9 +69,9 @@ y237_22 = yfunc2(2.37);
 interpolerror2 = y237_21-y237_22
 
 % EulerError/validity control (root 2)
-d1 = bullsEyeDistanceAll(y0, v, h, rot2 + tn2, m);
-d2 = bullsEyeDistanceAll(y0, v, h/2, rot2 + tn2, m);
-d3 = bullsEyeDistanceAll(y0, v, h/4, rot2 + tn2, m);
+d1 = bullsEyeDistanceA(y0, v, h, rot2 + tn2, m);
+d2 = bullsEyeDistanceA(y0, v, h/2, rot2 + tn2, m);
+d3 = bullsEyeDistanceA(y0, v, h/4, rot2 + tn2, m);
 richardson2 = (d1 - d2) / (d2 - d3)
 eulererror2 = abs(d3 - d2)
 tot2 = eulererror2 + secanterror2
@@ -84,12 +83,11 @@ tot2 = eulererror2 + secanterror2
 
 
 % Shows worst-case scenario for both roots
-maxBullsyedistance1 = bullsEyeDistanceAll(y0, v, h, rot1 + 6.82e-05, m)
-maxBullsyedistance2 = bullsEyeDistanceAll(y0, v, h, rot2 + 2.92e-05, m)
+maxBullsyedistance1 = bullsEyeDistanceA(y0, v, h, rot1 + 6.82e-05, m)
+maxBullsyedistance2 = bullsEyeDistanceA(y0, v, h, rot2 + 2.92e-05, m)
 
 % Both roots with their respective errors will still be able to hit within
 % the inner bull's-eye radius
-
 
 % This is the first time we have worked with accumulative error margins and
 % so we assume the separate method errors can be combined additively.
