@@ -31,12 +31,12 @@ d1 = bullsEyeDistanceV(y0, a, h, root, m);
 d2 = bullsEyeDistanceV(y0, a, h/2, root, m);
 d3 = bullsEyeDistanceV(y0, a, h/4, root, m);
 richard1 = abs(d1 - d2) / abs(d2 - d3)
-eulerError = abs(d3 - d2)
+eulerError = abs(d1 - d2)
 
 totalE = secantError + eulerError
 % SecantError = 5.84e-05
 % InterpolError = 4.44e-16 (negligible)
-% EulerError = 9.12e-07
+% EulerError = 1.82e-06
 % totalError = 5.93-05
 
 
