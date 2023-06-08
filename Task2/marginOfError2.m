@@ -12,7 +12,7 @@ m = 20e-3;
 v = 15;     
 y0 = 1.84;
 h = 1e-5;
-tol = 1e-5;
+tol = 1e-4;
 aGuess1 = 0;
 aGuess2 = 80;
 
@@ -36,9 +36,9 @@ y237n2 = yfunc2(2.37);
 intpolerror1 = y237_1-y237n2
 
 % EulerError/validity control (root1)
-d1 = bullsEyeDistanceA(y0, v, h, rot1 + tn1, m);
-d2 = bullsEyeDistanceA(y0, v, h/2, rot1 + tn1, m);
-d3 = bullsEyeDistanceA(y0, v, h/4, rot1 + tn1, m);
+d1 = bullsEyeDistanceA(y0, v, h, rot1 + tn1, m)
+d2 = bullsEyeDistanceA(y0, v, h/2, rot1 + tn1, m)
+d3 = bullsEyeDistanceA(y0, v, h/4, rot1 + tn1, m)
 richardson1 = (d1 - d2) / (d2 - d3)
 eulererror1 = abs(d1 - d2)
 tot1 = eulererror1 + secanterror1
@@ -82,16 +82,16 @@ tot2 = eulererror2 + secanterror2
 % Tot2 = 2.92e-05
 
 % Disrupting both step length and tolerance (root1)
-answ1r1 = secantA(y0, v, h, aGuess1, m, 7*tol);
-answ2r1 = secantA(y0, v, 2*h, aGuess1, m, tol);
+answ1r1 = secantA(y0, v, h, aGuess1, m, tol*1e-1);
+answ2r1 = secantA(y0, v, h/2, aGuess1, m, tol);
 E1r1 = abs(rot1 - answ1r1)
 E2r1 = abs(rot1 - answ2r1)
 Er1 = E1r1 + E2r1
 % Total error (nested Euler in Secant, root1) = 1.63e-04
 
 % Disrupting both step length and tolerance (root2)
-answ1r2 = secantA(y0, v, h, aGuess2, m, 2*tol);
-answ2r2 = secantA(y0, v, 2*h, aGuess2, m, tol);
+answ1r2 = secantA(y0, v, h, aGuess2, m, tol*1e-1);
+answ2r2 = secantA(y0, v, h/2, aGuess2, m, tol);
 E1r2 = abs(rot2 - answ1r2)
 E2r2 = abs(rot2 - answ2r2)
 Er2 = E1r2 + E2r2

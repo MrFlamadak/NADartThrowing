@@ -74,7 +74,7 @@ xp = xp(end-3:end);
 yp = yp(end-3:end);
 k = newtonInterpol(xp(1:end-1), yp(1:end-1));
 yFuncP = @(x) k(1) + k(2) * (x-xp(1)) + k(3) * (x-xp(1)) * (x-xp(2));
-pDistance2 = yFuncP(2.37) -1.83
+pDistance2 = yFuncP(2.37) - 1.83
 
 % Negative error
 [distance1, xn, yn] = bullsEyeDistanceA(y0, v, h, undisrupted2 - totError2, m);
