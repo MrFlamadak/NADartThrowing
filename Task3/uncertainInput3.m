@@ -26,8 +26,8 @@ Etot = Em + Ea + Ey0
 
 % Verification to see if the error is within bull's-eye radius
 
-% Positive error
-[distance1, xp, yp] = bullsEyeDistanceV(y0, a, h, undisrupted1 + Etot, m);
+% Positive error (the added number term is from marginOfError3)
+[distance1, xp, yp] = bullsEyeDistanceV(y0, a, h, undisrupted1 + (Etot + 5.08e-4), m);
 
 xp = xp(end-3:end);
 yp = yp(end-3:end);
@@ -35,8 +35,8 @@ k = newtonInterpol(xp(1:end-1), yp(1:end-1));
 yFuncP = @(x) k(1) + k(2) * (x-xp(1)) + k(3) * (x-xp(1)) * (x-xp(2));
 pDistance = yFuncP(2.37) -1.83
 
-% Negative error
-[distance2, xn, yn] = bullsEyeDistanceV(y0, a, h, undisrupted1 - Etot, m);
+% Negative error (the added number term is from marginOfError3)
+[distance2, xn, yn] = bullsEyeDistanceV(y0, a, h, undisrupted1 - (Etot + 5.08e-4), m);
 
 xn = xn(end-3:end);
 yn = yn(end-3:end);

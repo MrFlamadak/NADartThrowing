@@ -10,7 +10,7 @@ y0 = 1.84;
 h = 1e-5;
 tol = 1e-4;
 
-aGuess1 = 0;
+aGuess1 = 4;
 % first root
 [root1, tn1] = secantA(y0, v, h, aGuess1, m, tol);
 [d, xd, yd] = bullsEyeDistanceA(y0, v, h, root1, m);

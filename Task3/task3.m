@@ -17,7 +17,7 @@ root
 % root = 17.3108182 m/s
 % this gives us the final answer
 % "in order to hit the bull's-eye, the dart must be thrown with
-% 17.3108182 +- 5.93e-05 m/s." (error from marginOfError3)
-% maxDistancefrombullseye = 5.568718044468568e-07
+% 17.3108182 ± 5.08e-04 m/s." (error from marginOfError3)
+% maxDistancefrombullseye = 8.79e-06
 % It is within the bullseye because radius of bullseye is 6.35*e-03
 

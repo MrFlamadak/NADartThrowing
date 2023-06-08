@@ -13,7 +13,7 @@ v = 15;
 y0 = 1.84;
 h = 1e-5;
 tol = 1e-4;
-aGuess1 = 0;
+aGuess1 = 4;
 aGuess2 = 80;
 
 % root 1
@@ -82,27 +82,30 @@ tot2 = eulererror2 + secanterror2
 % Tot2 = 2.92e-05
 
 % Disrupting both step length and tolerance (root1)
-answ1r1 = secantA(y0, v, h, aGuess1, m, tol*1e-1);
-answ2r1 = secantA(y0, v, h/2, aGuess1, m, tol);
-E1r1 = abs(rot1 - answ1r1)
-E2r1 = abs(rot1 - answ2r1)
-Er1 = E1r1 + E2r1
+distortedToleranceRoot1 = secantA(y0, v, h, aGuess1, m, tol*1e-2);
+distortedHRoot1 = secantA(y0, v, h/2, aGuess1, m, tol);
+SecantErrorRoot1 = abs(rot1 - distortedToleranceRoot1)
+EulerErrorRoot1 = abs(rot1 - distortedHRoot1)
+EtotRoot1 = SecantErrorRoot1 + EulerErrorRoot1
 % Total error (nested Euler in Secant, root1) = 1.63e-04
 
 % Disrupting both step length and tolerance (root2)
-answ1r2 = secantA(y0, v, h, aGuess2, m, tol*1e-1);
-answ2r2 = secantA(y0, v, h/2, aGuess2, m, tol);
-E1r2 = abs(rot2 - answ1r2)
-E2r2 = abs(rot2 - answ2r2)
-Er2 = E1r2 + E2r2
+distortedToleranceRoot2 = secantA(y0, v, h, aGuess2, m, tol*1e-1);
+distortedHRoot2 = secantA(y0, v, h/2, aGuess2, m, tol);
+SecantErrorRoot2 = abs(rot2 - distortedToleranceRoot2)
+EulerErrorRoot2 = abs(rot2 - distortedHRoot2)
+EtotRoot2 = SecantErrorRoot2 + EulerErrorRoot2
 % Total error (nested Euler in Secant, root2) = 4.97e-05
 
 % Shows worst-case scenario for both roots
-maxBullsyedistance1 = bullsEyeDistanceA(y0, v, h, rot1 + 6.82e-05, m)
-maxBullsyedistance2 = bullsEyeDistanceA(y0, v, h, rot2 + 2.92e-05, m)
+maxBullsyedistance1 = bullsEyeDistanceA(y0, v, h, rot1 - EtotRoot1, m)
+maxBullsyedistance2 = bullsEyeDistanceA(y0, v, h, rot2 + EtotRoot2, m)
 
 % Both roots with their respective errors will still be able to hit within
 % the inner bull's-eye radius
 
-% This is the first time we have worked with accumulative error margins and
-% so we assume the separate method errors can be combined additively.
+% maxBullsyedistance1 = -3.902020606405543e-06
+% maxBullsyedistance2 = -1.867375478958877e-05
+
+
+

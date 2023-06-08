@@ -48,8 +48,8 @@ totError2 = mError2 + vError2 + y0Error2
 % Verification to see if the error is within bull's-eye radius
 
 % Root 1
-% Positive error
-[distance1, xp, yp] = bullsEyeDistanceA(y0, v, h, undisrupted1 + totError1, m);
+% Positive error (Inserted number term is from marginOfError2)
+[distance1, xp, yp] = bullsEyeDistanceA(y0, v, h, undisrupted1 + (totError1 +  2.26e-04), m);
 
 xp = xp(end-3:end);
 yp = yp(end-3:end);
@@ -57,8 +57,8 @@ k = newtonInterpol(xp(1:end-1), yp(1:end-1));
 yFuncP = @(x) k(1) + k(2) * (x-xp(1)) + k(3) * (x-xp(1)) * (x-xp(2));
 pDistance1 = yFuncP(2.37) -1.83
 
-% Negative error
-[distance1, xn, yn] = bullsEyeDistanceA(y0, v, h, undisrupted1 - totError1, m);
+% Negative error 
+[distance1, xn, yn] = bullsEyeDistanceA(y0, v, h, undisrupted1 - (totError1 +  2.26e-04), m);
 
 xn = xn(end-3:end);
 yn = yn(end-3:end);
@@ -67,8 +67,8 @@ yFuncN = @(x) k(1) + k(2) * (x-xn(1)) + k(3) * (x-xn(1)) * (x-xn(2));
 nDistance1 = yFuncN(2.37) - 1.83
 
 % Root 2
-% Positive error
-[distance1, xp, yp] = bullsEyeDistanceA(y0, v, h, undisrupted2 + totError2, m);
+% Positive error (Inserted number term is from marginOfError2)
+[distance1, xp, yp] = bullsEyeDistanceA(y0, v, h, undisrupted2 + (totError2 + 4.11e-05), m);
 
 xp = xp(end-3:end);
 yp = yp(end-3:end);
@@ -77,7 +77,7 @@ yFuncP = @(x) k(1) + k(2) * (x-xp(1)) + k(3) * (x-xp(1)) * (x-xp(2));
 pDistance2 = yFuncP(2.37) - 1.83
 
 % Negative error
-[distance1, xn, yn] = bullsEyeDistanceA(y0, v, h, undisrupted2 - totError2, m);
+[distance1, xn, yn] = bullsEyeDistanceA(y0, v, h, undisrupted2 - (totError2 + 4.11e-05), m);
 
 xn = xn(end-3:end);
 yn = yn(end-3:end);
