@@ -40,28 +40,6 @@ totalE = secantError + eulerError
 % totalError = 5.93-05
 
 
-% Shows worst-case scenario
-% Positive error
-[distance1, xp, yp] = bullsEyeDistanceV(y0, a, h, root + totalE, m);
-
-xp = xp(end-3:end);
-yp = yp(end-3:end);
-k = newtonInterpol(xp(1:end-1), yp(1:end-1));
-yFuncP = @(x) k(1) + k(2) * (x-xp(1)) + k(3) * (x-xp(1)) * (x-xp(2));
-pDistance = yFuncP(2.37) -1.83
-
-% Negative error
-[distance2, xn, yn] = bullsEyeDistanceV(y0, a, h, root - totalE, m);
-
-xn = xn(end-3:end);
-yn = yn(end-3:end);
-k = newtonInterpol(xn(1:end-1), yn(1:end-1));
-yFuncN = @(x) k(1) + k(2) * (x-xn(1)) + k(3) * (x-xn(1)) * (x-xn(2));
-nDistance = yFuncN(2.37) - 1.83
-
-
-% pmaxDistancefrombullseye = 5.51278e-06
-% nmaxDistancefrombullseye = 4.77311e-06
 
 
 % The correct way to calculate margin of error for nested methods
@@ -80,13 +58,35 @@ tol2 = 1e-5;
 %% euler disrupted
 h2 = h/2;
 [rootE2, secantError1] = secantV(y0, a, h2, vGuess, m, tol)
-h4 = h/4
 
-[rootE4, secantError1] = secantV(y0, a, h4, vGuess, m, tol)
-skattning = (rootO-rootE2)/(rootE2-rootE4)
+eulerError = abs(rootO - rootE2)
+totalError = abs(rootO - rootE2) + abs(rootO - rootS)
+secantError = abs(rootO - rootS)
 
-EulerFel = abs(rootO - rootE2)
-TotalFel = abs(rootO - rootE2) + abs(rootO - rootS)
-sekantFel = abs(rootO - rootS)
+% EulerError =   3.371579970270489e-04
+% TotalError =   5.078044128588033e-04
+% SekantError =   1.706464158317544e-04
+% Shows worst-case scenario
+% Positive error
+[distance1, xp, yp] = bullsEyeDistanceV(y0, a, h, rootO + totalError, m);
+
+xp = xp(end-3:end);
+yp = yp(end-3:end);
+k = newtonInterpol(xp(1:end-1), yp(1:end-1));
+yFuncP = @(x) k(1) + k(2) * (x-xp(1)) + k(3) * (x-xp(1)) * (x-xp(2));
+pDistance = yFuncP(2.37) -1.83
+
+% Negative error
+[distance2, xn, yn] = bullsEyeDistanceV(y0, a, h, rootO - totalError, m);
+
+xn = xn(end-3:end);
+yn = yn(end-3:end);
+k = newtonInterpol(xn(1:end-1), yn(1:end-1));
+yFuncN = @(x) k(1) + k(2) * (x-xn(1)) + k(3) * (x-xn(1)) * (x-xn(2));
+nDistance = yFuncN(2.37) - 1.83
+
+
+% pmaxDistancefrombullseye = 8.79e-06
+% nmaxDistancefrombullseye = 1.60e-06
 
 % ***********************************************************************
