@@ -1,18 +1,24 @@
 % SF1546 Numeriska Metoder, Basic Course, Project A
-% secantV.m - Finds what velocity is required for hitting bullseye when
+% secantVAll.m - Finds what velocity is required for hitting bullseye when
 % angle is 3 degrees
-function [root, tn] = secantV(h, v, tol)
+% Modified from "secantV.m", so that it can take more parameters
+function [root, tn] = secantV(y0, a, h, v, m, tol)
     vn = v + 1; vnn = v;
-    f = @(x) bullsEyeDistanceV(h, x);
+
+    % the parameters in f have an "x" prefixed to their original name so
+    % that they will not have conflicts with secantVAll.m's parameter names
+    f = @(xy0, xa, xh, xv, xm) bullsEyeDistanceV(xy0, xa, xh, xv, xm);
     tn = 1;
     
     while abs(tn) > tol
-        tn = f(vnn) * (vnn-vn) / (f(vnn) - f(vn));
+        tn = f(y0, a, h, vnn, m) * (vnn-vn) / (f(y0, a, h, vnn, m) - f(y0, a, h, vn, m));
         vn = vnn;
         vnn = abs(vnn - tn);
     end
     
     root = vn;
-    tn = abs(tn)
+    tn = abs(tn);
 
 end
+
+

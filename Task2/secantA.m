@@ -1,14 +1,18 @@
 % SF1546 Numerical Methods, Basic course, Project A
-% secantA.m - "Secant method for Project A"
-
+% secantA.m - "Modified Secant method for finding root for angle"
+% 
 % xn: x(n); xnn: x(n+1)
-function [root, tn] = secantA(h, a, tol)
-    xn = a+1; xnn = a;
+function [root, tn, tnn] = secantA(y0, v0, h, a, m, tol)
+    
+    xn = a + 1; xnn = a;
     tn = 1;
-    f = @(xh,xa) bullsEyeDistanceA(xh, xa);
+    % The variable names are unique to avoid conflicts with the parameter
+    % variables.
+    f = @(xy, xv, xh, xa, xm) bullsEyeDistanceA(xy, xv, xh, xa, xm);
 
     while abs(tn) > tol
-        tn = f(h,xnn)*(xnn-xn)/(f(h,xnn)-f(h,xn));
+        tnn = tn;
+        tn = f(y0, v0, h, xnn, m)*(xnn-xn)/(f(y0, v0, h, xnn, m)-f(y0, v0, h, xn, m));
         xn = xnn;
         xnn = abs(xnn-tn);
     end

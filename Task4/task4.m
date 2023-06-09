@@ -3,15 +3,9 @@
 % velocity in regards to dart-throwing
 % keywords: hv = high velocity, lv = low velocity, mv = middle velocity
 % mm = middle mass, hm = high mass
+clear variables
+format long
 
-% Hypothesis
-% Our hypothesis is that an increased mass will lead to an increase in
-% gravitiational pull. Therefore, the force exerted on the dart in the direction
-% of the dartboard must increase in order to compenstate for this. 
-% The only variable that affects the force is velocity and so an increase 
-% in velocity is an increase in force upwards.
-
-% point1 - high ma, high velocity
 h = 1e-5;
 
 mm = 20e-3;
@@ -20,10 +14,10 @@ hm = 30e-3;
 hv = 30;
 mv = 15;
 lv = 10;
-normal = bullsEyeDistanceMV(h, mm, mv) % prior assigments
-highMassNormalV = bullsEyeDistanceMV(h, hm, mv)
-highMassLowV = bullsEyeDistanceMV(h, hm, lv) 
-highMassHighV = bullsEyeDistanceMV(h, hm, hv)
+normal = bullsEyeDistanceMV(h, mm, mv) + 1.83 % prior assigments
+highMassNormalV = bullsEyeDistanceMV(h, hm, mv) + 1.83
+highMassLowV = bullsEyeDistanceMV(h, hm, lv) + 1.83
+highMassHighV = bullsEyeDistanceMV(h, hm, hv) + 1.83
 
 % En konstant massa hm och tre olika hastigheter lv, mv och hv väljs. Det
 % är tydligt från observation att när hastigheten är som lägst att pilen

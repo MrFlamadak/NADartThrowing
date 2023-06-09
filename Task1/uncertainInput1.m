@@ -4,6 +4,8 @@
 % for task 1, we are given the dart's mass, velocity, angle and initial height.
 % we will begin with disrupt each parameter with 1% one at a time 
 % and finally calculate the total margin of error.
+
+clear variables
 format long
 
 m = 20e-3;  mError = m * 0.01;
