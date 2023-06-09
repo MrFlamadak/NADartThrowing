@@ -11,7 +11,7 @@ h = 1e-5;
 tol = 1e-4;
 
 % SecantError
-[root, secantError] = secantV(y0, a, h, vGuess, m, tol)
+[root, secantError] = secantV(y0, a, h, vGuess, m, tol);
 
 % InterpolError
 [distance, xd, yd] = bullsEyeDistanceV(y0, a, h, root, m);
@@ -33,7 +33,7 @@ d3 = bullsEyeDistanceV(y0, a, h/4, root, m);
 richard1 = abs(d1 - d2) / abs(d2 - d3)
 eulerError = abs(d1 - d2)
 
-totalE = secantError + eulerError
+totalE = secantError + eulerError;
 % SecantError = 5.84e-05
 % InterpolError = 4.44e-16 (negligible)
 % EulerError = 1.82e-06
@@ -59,9 +59,9 @@ tol2 = 1e-5;
 h2 = h/2;
 [rootE2, secantError1] = secantV(y0, a, h2, vGuess, m, tol)
 
+secantError = abs(rootO - rootS)
 eulerError = abs(rootO - rootE2)
 totalError = abs(rootO - rootE2) + abs(rootO - rootS)
-secantError = abs(rootO - rootS)
 
 % EulerError =   3.371579970270489e-04
 % TotalError =   5.078044128588033e-04

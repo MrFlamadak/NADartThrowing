@@ -39,7 +39,7 @@ answer3 = graph(2.37);
 eulerAnswer3 = y(end);
 
 richardson = (eulerAnswer1 - eulerAnswer2) / (eulerAnswer2 - eulerAnswer3)
-eulertn = abs(eulerAnswer3 - eulerAnswer2)
+eulertn = abs(eulerAnswer1 - eulerAnswer2)
 
 % Euler Truncation error
 % 1.1011e-06
